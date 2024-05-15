@@ -1,6 +1,9 @@
-<script>import "../style.css";</script>
+<script>
+import "../style.css";
+</script>
 
 <slot>
 </slot>
-
-<style></style>
+ 
+<style>   
+</style>
