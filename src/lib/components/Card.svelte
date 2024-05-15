@@ -9,6 +9,8 @@
   export let cardTitle: string = '';
   export let cardContent: string = '';
   export let cardDate: string = '';
+
+
 </script>
   
 <!-- FULL CARD -->
@@ -21,12 +23,8 @@
 
   <!-- BODY OF CARD -->
   <div class="-mt-1 flex flex-col gap-1">
-    <h1 class="line-clamp-1 resize-none text-lg font-semibold">
-      {cardTitle}
-    </h1>
-    <textarea class="line-clamp-3 resize-none text-sm outline-0">
-      {cardContent}
-    </textarea>
+    <h1 class="line-clamp-1 text-lg font-semibold">{cardTitle}</h1>
+    <textarea class="line-clamp-2 resize-none text-sm outline-0">{cardContent}</textarea>
   </div>
 
   <Separator class="w-full bg-gray-500" />
