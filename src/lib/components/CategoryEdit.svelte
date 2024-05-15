@@ -1,12 +1,9 @@
 <script lang="ts">
-import {
-    Button,
-   
-  } from "$lib/components/ui/button/index.js";
+  import { CirclePlus, Trash2  } from 'lucide-svelte';
+
+  import { Button} from "$lib/components/ui/button/index.js";
   import { Input } from "$lib/components/ui/input/index.js";
   import * as Dialog from "$lib/components/ui/dialog/index.js";
-  import { CirclePlus } from 'lucide-svelte';
-  import { Trash2 } from "lucide-svelte";
 </script>
 
 <div class="w-full grid">
