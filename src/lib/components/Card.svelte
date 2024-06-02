@@ -1,11 +1,27 @@
 <script lang="ts">
+  import CategoryEdit from "$lib/components/CategoryEdit.svelte";
+  
   import { Circle, CalendarClock, Ellipsis, ListChecks, Trash2, Pencil } from 'lucide-svelte';
   import { Button } from "$lib/components/ui/button/index.js";
   import { Separator } from "$lib/components/ui/separator/index.js";
   import { Input } from "$lib/components/ui/input";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
+  import CalendarIcon from "lucide-svelte/icons/calendar";
+  import {
+    DateFormatter,
+    type DateValue,
+    getLocalTimeZone
+  } from "@internationalized/date";
+  import { cn } from "$lib/utils.js";
+  import { Calendar } from "$lib/components/ui/calendar/index.js";
+  import * as Popover from "$lib/components/ui/popover/index.js";
+ 
+  const df = new DateFormatter("en-US", {
+    dateStyle: "long"
+  });
+ 
+  let value: DateValue | undefined = undefined;
 
-  import CategoryEdit from "$lib/components/CategoryEdit.svelte";
 
   export let priorityColor: string = 'text-red-500'; // Set a default color
   export let cardCategory: string = '';
@@ -64,8 +80,26 @@
   <!-- FOOTER OF CARD -->
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-2">
-      <CalendarClock class="h-5 w-5" />
-      <span class="text-sm">{cardDate}</span>
+      <Popover.Root>
+        <Popover.Trigger asChild let:builder>
+          <Button
+            variant="secondary"
+            size="xs"
+            class={cn(
+              "w-fit justify-start text-left font-normal",
+              !value && "text-black"
+            )}
+            builders={[builder]}
+          >
+
+            <CalendarClock class="mr-2 h-4 w-4 stroke-black" />
+            {value ? df.format(value.toDate(getLocalTimeZone())) : "Pick a date"}
+          </Button>
+        </Popover.Trigger>
+        <Popover.Content class="w-auto p-0">
+          <Calendar bind:value initialFocus />
+        </Popover.Content>
+      </Popover.Root>
     </div>
 
     <DropdownMenu.Root>
