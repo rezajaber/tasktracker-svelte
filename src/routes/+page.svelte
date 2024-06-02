@@ -23,7 +23,7 @@
   </div>
 
   <div class="overlay relative h-[560px] overflow-hidden rounded-lg">
-    <div class="no-scrollbar grid h-full grid-cols-3 gap-5 overflow-y-scroll p-2">
+    <div class="no-scrollbar grid h-full gap-5 overflow-y-scroll p-2 md:grid-cols-2 xl:grid-cols-3">
       {#each cards as card}
         <Card  
           priorityColor={card.priorityColor} 
@@ -33,9 +33,6 @@
           cardDate={card.cardDate}  />
       {/each}
     </div>
-
-    <div class="lg:grid-cols-4 grid sm:grid-cols-3 grid-cols-2"></div>
-    <div class="hover:opacity-75 opacity-50 hover:scale-150 scale-125"></div>
   </div>
 </div>
   

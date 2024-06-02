@@ -6,7 +6,7 @@
 </script>
   
 <div>
-  <div class="flex justify-between">
+  <div class="mx-auto -mt-1 flex w-[22rem] justify-between md:mx-0 md:w-full">
     <a
     href="https://github.com/rezajaber"
     target="_blank"

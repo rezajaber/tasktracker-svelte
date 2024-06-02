@@ -13,9 +13,9 @@
   let low: boolean = false;
 </script>
   
-<div class="flex justify-between">
+<div class="mx-auto grid gap-2 md:mx-0 md:flex md:justify-between">
   <div class="flex gap-2">
-    <div class="relative w-96 max-w-md items-center">
+    <div class="relative w-[22rem] max-w-md items-center md:w-96">
       <Input
         id="search"
         type="text"
@@ -29,10 +29,15 @@
       </span>
     </div>
 
-    <Button type="submit">
+    <Button class="hidden md:flex" type="submit">
       <CirclePlus class="mr-1.5 w-4" />Create Task
     </Button>
   </div>
+
+  <div class="flex justify-between">
+    <Button class="md:hidden" type="submit"
+      ><CirclePlus class="mr-1.5 w-4" />Create Task
+    </Button>
 
   <DropdownMenu.Root>
     <DropdownMenu.Trigger asChild let:builder>
@@ -68,5 +73,6 @@
       </DropdownMenu.Group>
     </DropdownMenu.Content>
   </DropdownMenu.Root>
+  </div>
 </div>
   
